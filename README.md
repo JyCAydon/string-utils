@@ -1,4 +1,4 @@
-# string utils
+# StringUtils
 
 实现常用字符串操作函数。例如 `Split`, `Join`, `Trim`, `Count`, `Replace`, `ToLower`, `ToUpper` 等。
 
