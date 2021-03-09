@@ -54,20 +54,14 @@ namespace StringUtils
     inline void Split(const string &src, vector<string> &res, const string &seg)
     {
         res.clear();
-        size_t start = 0, end = 0;
-        string sub;
-        while (start < src.size())
-        {
-            if ((end = src.find_first_of(seg, start)) == string::npos)
-            {
-                sub = src.substr(start);
-                res.push_back(sub);
-                return;
+        size_t start = 0, found = 0, end = src.size();
+        while (found != string::npos) {
+            found = src.find(seg, start);
+            cerr << found << endl;
+            if (found != start && start != end) {
+                res.emplace_back(src.substr(start, found - start));
             }
-
-            sub = src.substr(start, end);
-            start = end + seg.size();
-            res.push_back(sub);
+            start = found + seg.size();
         }
     }
 
